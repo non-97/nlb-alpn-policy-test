@@ -6,13 +6,14 @@ exec > >(tee /var/log/user-data.log | logger -t user-data -s 2>/dev/console) 2>&
 
 # Install the necessary packages
 yum update -y
-amazon-linux-extras list
-amazon-linux-extras install nginx1 -y
+yum install -y httpd
+
+echo "test text" > /var/www/html/index.html
 
 # Start Nginx
-systemctl start nginx
-systemctl status nginx
+systemctl start httpd
+systemctl status httpd
 
 # Enable Nginx
-systemctl enable nginx
-systemctl is-enabled nginx
+systemctl enable httpd
+systemctl is-enabled httpd

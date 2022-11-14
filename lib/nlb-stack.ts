@@ -111,7 +111,7 @@ export class NlbStack extends cdk.Stack {
 
     // User data for Nginx
     const userDataParameter = fs.readFileSync(
-      path.join(__dirname, "../src/ec2/user_data_setting_nginx.sh"),
+      path.join(__dirname, "../src/ec2/user_data_setting_httpd.sh"),
       "utf8"
     );
     const userDataSettingNginx = cdk.aws_ec2.UserData.forLinux({
